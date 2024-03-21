@@ -1,0 +1,4 @@
+
+
+
+const key="9647ada796d7f12cf8581fa909720334";function colocarDadosNaTela(a){console.log(a),document.querySelector(".cidade").innerHTML="Tempo em: "+a.name,document.querySelector(".temp").innerHTML=Math.floor(a.main.temp)+"\xB0C",document.querySelector(".texto-previsao").innerHTML=a.weather[0].description,document.querySelector(".umidade").innerHTML=a.main.humidity+"% Umidade",document.querySelector(".img-previsao").src=`https://openweathermap.org/img/wn/${a.weather[0].icon}.png`}async function buscarCidade(a){const b=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${a}&appid=${key}&lang=pt_br&units=metric`).then(a=>a.json());console.log(b),colocarDadosNaTela(b)}function cliqueiNoBotao(){const a=document.querySelector(".input-cidade").value;buscarCidade(a)}
